@@ -1,0 +1,68 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+    .student-img{
+    height: 200px;
+    object-fit: cover;
+        }
+</style>
+</head>
+<body>
+    {% extends 'master/base.html' %}
+
+{% block body %}
+
+<div class="container mt-3">
+
+    <a href="{% url 'student_add' %}" class="btn btn-success mb-3">
+        Add Student
+    </a>
+
+    <div class="row">
+
+        {% for i in stu_info %}
+
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+            <div class="card h-100 shadow-sm">
+
+                {% if i.image %}
+                    <img src="{{ i.image.url }}" class="card-img-top student-img" alt="student image">
+                {% else %}
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top student-img">
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ i.name }}</h5>
+                    <p class="card-text">{{ i.phone }}</p>
+
+                    <a href="{% url 'student_update' i.id %}" class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+
+                    <a href="{% url 'student_delete' i.id %}" class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock body %}
+</body>
+</html>
+    

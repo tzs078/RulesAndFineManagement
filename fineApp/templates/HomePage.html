@@ -1,0 +1,76 @@
+
+{% extends 'master/base.html' %}
+
+{% block body %}
+
+<div class="container mt-4">
+
+    <!-- Messages -->
+    {% include 'master/messages.html' %}
+
+    <!-- Welcome Section -->
+    <div class="card shadow p-4 mb-4">
+        <h2>👋 Hallo, {{ request.user.username }}</h2>
+        <p>Welcome to DIPTI Fine Rules System</p>
+    </div>
+
+    <!-- Rules Section -->
+    <div class="card shadow p-4 mb-3">
+        <h4>❌ Absent</h4>
+        <p>Class e absent thakle fine deya hobe.</p>
+    </div>
+
+    <div class="card shadow p-4 mb-3">
+        <h4>⏰ Late Entry</h4>
+        <p>Class e late dhukle fine apply hobe.</p>
+    </div>
+
+    <div class="card shadow p-4 mb-3">
+        <h4>⏰ Very Late (After 9 AM)</h4>
+        <p>9 tar por ba onek late dhukle extra fine deya hobe.</p>
+    </div>
+
+    <div class="card shadow p-4 mb-3">
+        <h4>🏖️ Leave Rules</h4>
+        <p>Chuti nite hole advance permission nite hobe.</p>
+    </div>
+
+    <div class="card shadow p-4 mb-3">
+        <h4>📱 Phone Use</h4>
+        <p>Class er moddhe phone use korle fine hobe.</p>
+    </div>
+
+    <div class="card shadow p-4 mb-3">
+        <h4>😴 Sleeping in Class</h4>
+        <p>Class time e ghumaile fine apply hobe.</p>
+    </div>
+
+    <div class="card shadow p-4 mb-3">
+        <h4>💻 Break Time Coding</h4>
+        <p>Break time e coding allowed, but overuse avoid korte hobe.</p>
+    </div>
+
+    <div class="card shadow p-4 mb-3">
+        <h4>🚪 Late Return from Break</h4>
+        <p>Break sesh howar poro room e na asle fine hobe.</p>
+    </div>
+
+    <div class="card shadow p-4 mb-3">
+        <h4>😎 Over Smart Behavior</h4>
+        <p>Besi paknami korle warning + fine apply hobe.</p>
+    </div>
+
+    <div class="card shadow p-4 mb-3">
+        <h4>📚 Task Issues</h4>
+        <p>Task na parle fine hobe.</p>
+    </div>
+
+    <div class="card shadow p-4 mb-3">
+        <h4>🏠 Home Task</h4>
+        <p>Home task complete na korle fine hobe.</p>
+    </div>
+
+</div>
+
+{% endblock body %}
+    
