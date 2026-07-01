@@ -1,0 +1,37 @@
+{% extends 'master/base.html' %}
+
+
+{% block body %}
+
+<a href="{% url 'fine_add_view' %}" class="btn btn-success">Add Fine</a>
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th>SL</th>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+            {% for i in fine_data %}
+
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.title}}</td>
+                <td>{{i.amount}}</td>
+                <td>
+                    <a href="{% url 'fine_update_view' i.id %}" class="btn btn-success">Edit</a>
+                    <a href="{% url 'fine_delete' i.id %}" class="btn btn-success">Delete</a>
+                </td>
+            </tr>
+                
+            {% endfor %}
+                
+        </tbody>
+
+    </table>
+{% endblock body %}
+    

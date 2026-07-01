@@ -114,3 +114,62 @@ def student_delete(request,id):
     return redirect('student_show')
 
 
+# fine section -------------
+
+def fine_view(request):
+    fine_data = FineModel.objects.all()
+    context = {
+        'fine_data' : fine_data
+    }
+    return render(request,"fineShow.html",context)
+
+def fine_add_view(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        amount = request.POST.get('amount')
+
+        FineModel.objects.create(
+            title = title,
+            amount = amount,
+        )
+        return redirect('fine_view')
+    
+    return render(request,"fineAdd.html")
+
+def fine_update_view(request,id):
+    fine_data = FineModel.objects.get(id = id)
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        amount = request.POST.get('amount')
+
+        fine_data.title = title
+        fine_data.amount = amount
+        fine_data.save()
+
+        return redirect('fine_view')
+    
+    context = {
+        'fine_data' : fine_data
+    }
+    
+    return render (request,"fineUpdate.html",context)
+
+def fine_delete(request,id):
+    FineModel.objects.get(id = id).delete()
+    return redirect("fine_view")
+
+
+
+# Action section--------
+
+def actionPage(req):
+    action_data = ActionModel.objects.all()
+    context = {
+        'action_data' : action_data
+    }
+    return render (req,"actionPage.html",context)
+
+def action_delete(request,id):
+    ActionModel.objects.get(id = id).delete()
+    return redirect("actionPage")
+
